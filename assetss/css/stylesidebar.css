@@ -1,0 +1,327 @@
+/* ============================================================
+   PBL-R Thailand — Dashboard Sidebar
+   Aesthetic: Dark Admin / Refined Backoffice
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Noto+Sans+Thai:wght@300;400;500;600&display=swap');
+
+:root {
+  --sb-bg:        #0d0f1a;
+  --sb-surface:   #141628;
+  --sb-surface-2: #1c1f35;
+  --sb-border:    rgba(255,255,255,0.06);
+  --sb-gold:      #c8a94a;
+  --sb-gold-pale: #e6d49a;
+  --sb-gold-glow: rgba(200,169,74,0.12);
+  --sb-gold-border: rgba(200,169,74,0.22);
+  --sb-text:      rgba(255,255,255,0.55);
+  --sb-text-hover:#fff;
+  --sb-width:     260px;
+  --sb-radius:    10px;
+  --ease:         cubic-bezier(0.4,0,0.2,1);
+  --dur:          0.28s;
+}
+
+/* ── Sidebar Shell ── */
+.sidebar {
+  position: fixed;
+  top: 0; left: 0;
+  width: var(--sb-width);
+  height: 100vh;
+  background: var(--sb-bg);
+  border-right: 1px solid var(--sb-border);
+  display: flex;
+  flex-direction: column;
+  z-index: 900;
+  overflow: hidden;
+  transition: transform var(--dur) var(--ease);
+}
+
+/* Subtle ambient glow at bottom */
+.sidebar::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 200px;
+  background: radial-gradient(ellipse at 50% 100%, rgba(200,169,74,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Logo / Brand ── */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1.6rem 1.4rem 1.4rem;
+  border-bottom: 1px solid var(--sb-border);
+  flex-shrink: 0;
+}
+
+.logo-icon {
+  width: 38px; height: 38px;
+  border-radius: 9px;
+  background: var(--sb-gold-glow);
+  border: 1px solid var(--sb-gold-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logo-icon i {
+  font-size: 0.95rem;
+  color: var(--sb-gold);
+}
+
+.logo-text {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #fff;
+  margin: 0;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Scrollable Menu Area ── */
+.menu-section {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.2rem 0.85rem 2rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.06) transparent;
+}
+
+.menu-section::-webkit-scrollbar { width: 3px; }
+.menu-section::-webkit-scrollbar-track { background: transparent; }
+.menu-section::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 2px; }
+
+/* ── Section Label ── */
+.menu-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+  padding: 0.25rem 0.6rem 0.75rem;
+  font-family: 'Noto Sans Thai', sans-serif;
+}
+
+/* ── Menu Item ── */
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0;
+  padding: 0.65rem 0.75rem;
+  border-radius: var(--sb-radius);
+  text-decoration: none;
+  color: var(--sb-text);
+  font-family: 'Noto Sans Thai', sans-serif;
+  font-size: 0.84rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), color var(--dur);
+  position: relative;
+  margin-bottom: 2px;
+  user-select: none;
+}
+
+.menu-item:hover {
+  background: rgba(255,255,255,0.05);
+  color: var(--sb-text-hover);
+}
+
+.menu-item.active,
+.menu-item.open {
+  background: var(--sb-gold-glow);
+  color: var(--sb-gold-pale);
+  border: 1px solid var(--sb-gold-border);
+}
+
+/* Active left indicator */
+.menu-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 20%; bottom: 20%;
+  width: 3px;
+  background: var(--sb-gold);
+  border-radius: 0 3px 3px 0;
+}
+
+.menu-item-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* ── Menu Icon ── */
+.menu-icon {
+  width: 28px; height: 28px;
+  border-radius: 7px;
+  background: rgba(255,255,255,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  color: var(--sb-text);
+  flex-shrink: 0;
+  transition: background var(--dur), color var(--dur);
+}
+
+.menu-item:hover .menu-icon,
+.menu-item.active .menu-icon,
+.menu-item.open .menu-icon {
+  background: var(--sb-gold-glow);
+  color: var(--sb-gold);
+}
+
+/* FontAwesome icon inside .menu-icon – override positioning */
+.menu-icon i { font-size: 0.75rem; }
+
+/* ── Chevron Arrow ── */
+.menu-arrow {
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.2);
+  transition: transform var(--dur) var(--ease), color var(--dur);
+  flex-shrink: 0;
+}
+
+.menu-item.open .menu-arrow {
+  transform: rotate(180deg);
+  color: var(--sb-gold);
+}
+
+/* ── Submenu ── */
+.menu-group { margin-bottom: 2px; }
+
+.submenu {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.32s var(--ease), opacity 0.25s ease;
+  opacity: 0;
+}
+
+.submenu.show {
+  max-height: 300px;
+  opacity: 1;
+}
+
+.submenu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.52rem 0.75rem 0.52rem 2.8rem;
+  border-radius: var(--sb-radius);
+  text-decoration: none;
+  color: rgba(255,255,255,0.38);
+  font-family: 'Noto Sans Thai', sans-serif;
+  font-size: 0.81rem;
+  font-weight: 300;
+  transition: color var(--dur), background var(--dur), padding-left var(--dur);
+  position: relative;
+  margin-bottom: 1px;
+}
+
+/* Dot on each submenu item */
+.submenu-item::before {
+  content: '';
+  position: absolute;
+  left: 1.5rem;
+  top: 50%; transform: translateY(-50%);
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  transition: background var(--dur), transform var(--dur);
+}
+
+.submenu-item:hover {
+  color: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.04);
+  padding-left: 3.1rem;
+}
+
+.submenu-item:hover::before {
+  background: var(--sb-gold);
+  transform: translateY(-50%) scale(1.4);
+}
+
+.submenu-item.active {
+  color: var(--sb-gold-pale);
+  font-weight: 500;
+}
+
+.submenu-item.active::before {
+  background: var(--sb-gold);
+}
+
+/* ── Divider between menu groups ── */
+.menu-divider {
+  height: 1px;
+  background: var(--sb-border);
+  margin: 0.75rem 0.6rem;
+}
+
+/* ── Footer / User area at bottom (optional) ── */
+.sidebar-footer {
+  padding: 1rem 1.2rem 1.4rem;
+  border-top: 1px solid var(--sb-border);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.sidebar-user {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--sb-radius);
+  transition: background var(--dur);
+  cursor: pointer;
+}
+
+.sidebar-user:hover { background: rgba(255,255,255,0.04); }
+
+.sidebar-avatar {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--sb-gold-glow);
+  border: 1.5px solid var(--sb-gold-border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem;
+  color: var(--sb-gold);
+  flex-shrink: 0;
+  font-family: 'DM Serif Display', serif;
+}
+
+.sidebar-user-info { flex: 1; overflow: hidden; }
+.sidebar-user-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.75);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.sidebar-user-role {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.28);
+}
+
+/* ── Collapsed state (mobile / toggle) ── */
+@media (max-width: 991px) {
+  .sidebar { transform: translateX(-100%); }
+  .sidebar.open { transform: translateX(0); }
+
+  /* Overlay */
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    z-index: 899;
+    backdrop-filter: blur(2px);
+  }
+  .sidebar-overlay.show { display: block; }
+}

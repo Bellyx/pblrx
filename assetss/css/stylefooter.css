@@ -1,0 +1,238 @@
+/* ============================================================
+   PBL-R Thailand — Footer Stylesheet
+   ============================================================ */
+
+/* ── Footer Base ── */
+.site-footer {
+  background: var(--night, #0d0f1a);
+  border-top: 1px solid rgba(200,169,74,0.15);
+  padding: 5rem 0 0;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Noto Sans Thai', 'Sarabun', sans-serif;
+}
+
+/* Radial glow backdrop */
+.site-footer::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 800px; height: 300px;
+  background: radial-gradient(ellipse at center bottom, rgba(200,169,74,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Fine dot grid */
+.site-footer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+
+.site-footer .container { position: relative; z-index: 1; }
+
+/* ── Brand Column ── */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.7rem;
+  color: #fff;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  line-height: 1;
+}
+
+.footer-logo .logo-dot {
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #c8a94a;
+  margin-left: 3px;
+  margin-bottom: 3px;
+  vertical-align: bottom;
+}
+
+.footer-tagline {
+  font-size: 0.83rem;
+  color: rgba(255,255,255,0.38);
+  font-weight: 300;
+  line-height: 1.6;
+  max-width: 220px;
+}
+
+/* Social icons */
+.footer-socials {
+  display: flex;
+  gap: 0.65rem;
+  margin-top: 0.5rem;
+}
+
+.footer-social-btn {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  transition: border-color 0.3s, color 0.3s, background 0.3s;
+}
+
+.footer-social-btn:hover {
+  border-color: rgba(200,169,74,0.5);
+  background: rgba(200,169,74,0.1);
+  color: #e6d49a;
+}
+
+.footer-social-btn svg { width: 15px; height: 15px; }
+
+/* ── Column Headings ── */
+.footer-heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: 0.95rem;
+  color: #fff;
+  margin-bottom: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.footer-heading::before {
+  content: '';
+  display: inline-block;
+  width: 18px; height: 1.5px;
+  background: #c8a94a;
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+/* ── Quick Links ── */
+.footer-links {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.footer-links a {
+  font-size: 0.84rem;
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s, gap 0.3s;
+}
+
+.footer-links a::before {
+  content: '';
+  display: inline-block;
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: #c8a94a;
+  opacity: 0.4;
+  flex-shrink: 0;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.footer-links a:hover {
+  color: #e6d49a;
+  gap: 0.75rem;
+}
+
+.footer-links a:hover::before {
+  opacity: 1;
+  transform: scale(1.5);
+}
+
+/* ── Contact Column ── */
+.footer-contact-list {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.footer-contact-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.84rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.5;
+}
+
+.footer-contact-list .contact-icon {
+  width: 30px; height: 30px;
+  border-radius: 6px;
+  background: rgba(200,169,74,0.1);
+  border: 1px solid rgba(200,169,74,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.footer-contact-list .contact-icon svg {
+  width: 13px; height: 13px;
+  stroke: #c8a94a;
+}
+
+/* ── Divider & Bottom Bar ── */
+.footer-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200,169,74,0.2) 30%, rgba(200,169,74,0.2) 70%, transparent);
+  margin: 3.5rem 0 0;
+}
+
+.footer-bottom {
+  padding: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.footer-copy {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.28);
+  font-weight: 300;
+}
+
+.footer-copy strong {
+  color: rgba(255,255,255,0.5);
+  font-weight: 500;
+}
+
+.footer-badge {
+  font-size: 0.72rem;
+  color: rgba(200,169,74,0.6);
+  border: 1px solid rgba(200,169,74,0.2);
+  border-radius: 100px;
+  padding: 0.2rem 0.75rem;
+  letter-spacing: 0.06em;
+}
+
+/* ── Responsive ── */
+@media (max-width: 767px) {
+  .site-footer { padding: 3.5rem 0 0; }
+  .footer-bottom { justify-content: center; text-align: center; }
+  .footer-badge { display: none; }
+}

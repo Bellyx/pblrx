@@ -1,0 +1,257 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #1a1d29;
+    color: #e4e4e7;
+    padding: 30px;
+    margin: 0;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2{
+    color: #f4f4f5;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.btn-add{
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 20px;
+    transition: background 0.2s;
+}
+
+.btn-add:hover{
+    background: #2563eb;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse !important;
+    background: #27293d;
+    border-radius: 12px;
+    overflow: hidden;
+    border-spacing: 0 !important;
+}
+
+th{
+    background: #2d3142;
+    padding: 15px;
+    text-align: center;
+    color: #a1a1aa;
+    font-weight: 500;
+    font-size: 14px;
+    border-bottom: 2px solid #3f4254;
+    border: none;
+}
+
+td{
+    padding: 15px;
+    border-bottom: 1px solid #3f4254;
+    text-align: center;
+    color: #d4d4d8;
+    border-left: none;
+    border-right: none;
+}
+
+tr:last-child td{
+    border-bottom: none;
+}
+
+tr:hover{
+    background: #2d3142;
+}
+
+.icon{
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.badge{
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.TH{
+    background: #dcfce7;
+    color: #166534;
+}
+
+.INT{
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.btn-edit, .btn-delete{
+    background: transparent;
+    border: 1px solid #52525b;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 0 4px;
+    font-size: 16px;
+    transition: all 0.2s;
+}
+
+.btn-edit{
+    color: #fbbf24;
+    border-color: #fbbf24;
+}
+
+.btn-edit:hover{
+    background: #fbbf24;
+    color: #1a1d29;
+}
+
+.btn-delete{
+    color: #ef4444;
+    border-color: #ef4444;
+}
+
+.btn-delete:hover{
+    background: #ef4444;
+    color: white;
+}
+
+.modal{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.modal-content{
+    background: #27293d;
+    width: 450px;
+    max-width: 90%;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content h3{
+    margin-top: 0;
+    color: #f4f4f5;
+    font-size: 20px;
+}
+
+.form-group{
+    margin-bottom: 20px;
+}
+
+.form-group label{
+    display: block;
+    margin-bottom: 8px;
+    color: #a1a1aa;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="file"],
+.form-group select{
+    width: 100%;
+    padding: 10px 12px;
+    background: #1a1d29;
+    border: 1px solid #3f4254;
+    border-radius: 8px;
+    color: #e4e4e7;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus{
+    outline: none;
+    border-color: #3b82f6;
+}
+
+.form-actions{
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.btn-save, .btn-cancel{
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-save{
+    background: #3b82f6;
+    color: white;
+}
+
+.btn-save:hover{
+    background: #2563eb;
+}
+
+.btn-cancel{
+    background: #3f4254;
+    color: #e4e4e7;
+}
+
+.btn-cancel:hover{
+    background: #52525b;
+}
+
+.toolbar{
+display:flex;
+gap:10px;
+margin-bottom:20px;
+}
+
+.toolbar input,
+.toolbar select{
+padding:8px 10px;
+border:1px solid #ddd;
+border-radius:6px;
+}
+
+.stats{
+display:flex;
+gap:15px;
+margin-bottom:20px;
+}
+
+.stat-box{
+background:#f5f7fb;
+padding:15px 20px;
+border-radius:10px;
+}
+
+.stat-box span{
+display:block;
+font-size:13px;
+color:#666;
+}
+
+.stat-box strong{
+font-size:22px;
+}
